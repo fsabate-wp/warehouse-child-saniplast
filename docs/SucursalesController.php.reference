@@ -1,0 +1,79 @@
+<?php
+/**
+ * Sucursales - Pagina fija con mapa Leaflet
+ * Ruta: /sucursales (php_self = sucursales)
+ * Template: themes/warehouse_child/templates/cms/sucursales.tpl
+ * Opcion A - Controller front custom, contenido 100% fijo, JS/CSS solo en esta pagina
+ */
+class SucursalesControllerCore extends FrontController
+{
+    public $php_self = 'sucursales';
+    public $ssl = false;
+
+    public function initContent()
+    {
+        parent::initContent();
+
+        // Datos fijos para SEO / breadcrumb - centralizados aqui si hace falta pasar al tpl
+        $this->context->smarty->assign([
+            'sucursales_title' => 'Sucursales',
+        ]);
+
+        $this->setTemplate('cms/sucursales');
+    }
+
+    public function getBreadcrumbLinks()
+    {
+        $breadcrumb = parent::getBreadcrumbLinks();
+        $breadcrumb['links'][] = [
+            'title' => $this->trans('Sucursales', [], 'Shop.Theme.Global'),
+            'url' => $this->context->link->getPageLink('sucursales'),
+        ];
+        return $breadcrumb;
+    }
+
+    public function getTemplateVarPage()
+    {
+        $page = parent::getTemplateVarPage();
+        $page['meta']['title'] = 'Sucursales | SaniPlast';
+        $page['meta']['description'] = 'Encontrá nuestras sucursales en Córdoba: Casa Central Gral. Bustos, Zona Sur Parque Latina y Zona Norte Villa Belgrano. Horarios, teléfonos y cómo llegar.';
+        $page['meta']['keywords'] = 'saniplast, sucursales, cordoba, gral bustos, parque latina, villa belgrano';
+        $page['body_classes']['page-sucursales'] = true;
+        return $page;
+    }
+
+    public function setMedia()
+    {
+        parent::setMedia();
+
+        // Leaflet OSM - solo en esta pagina
+        $this->registerStylesheet(
+            'leaflet-css',
+            'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+            ['server' => 'remote', 'priority' => 10, 'media' => 'all']
+        );
+        $this->registerJavascript(
+            'leaflet-js',
+            'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+            ['server' => 'remote', 'priority' => 10, 'position' => 'head']
+        );
+
+        // Assets locales del child - solo aqui
+        // PrestaShop resuelve /themes/... desde la raiz web
+        $this->registerStylesheet(
+            'sucursales-css',
+            'themes/warehouse_child/assets/css/sucursales.css',
+            ['media' => 'all', 'priority' => 20]
+        );
+        $this->registerJavascript(
+            'sucursales-js',
+            'themes/warehouse_child/assets/js/sucursales.js',
+            ['priority' => 20, 'position' => 'bottom', 'attribute' => 'defer']
+        );
+    }
+}
+
+// Alias para que Dispatcher encuentre SucursalesController
+if (!class_exists('SucursalesController', false)) {
+    class SucursalesController extends SucursalesControllerCore {}
+}

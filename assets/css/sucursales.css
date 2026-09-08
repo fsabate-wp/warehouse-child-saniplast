@@ -1,0 +1,60 @@
+/* SUCURSALES - solo en pagina /sucursales (via SucursalesController) */
+:root{--sp-primary:#004489;--sp-primary-dark:#002a56;--sp-ink:#0f2b4d}
+#sp-sucursales *{box-sizing:border-box}
+#sp-sucursales{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1e293b;max-width:1200px;margin:0 auto;padding:24px 16px}
+#sp-sucursales .sp-header{text-align:center;margin-bottom:20px}
+#sp-sucursales .sp-header h2{margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--sp-ink)}
+#sp-sucursales .sp-header h2 span{color:var(--sp-primary)}
+#sp-sucursales .sp-header p{margin:8px auto 0;color:#64748b;font-size:14px;max-width:560px;line-height:1.5}
+#sp-sucursales .sp-layout{display:grid;grid-template-columns:390px 1fr;gap:16px;align-items:start}
+@media(max-width:900px){#sp-sucursales .sp-layout{grid-template-columns:1fr}#sp-sucursales .sp-map-wrap{order:-1}}
+#sp-sucursales .sp-cards{display:flex;flex-direction:column;gap:12px}
+#sp-sucursales .sp-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:16px;cursor:pointer;transition:all .2s ease;position:relative;text-align:left;width:100%}
+#sp-sucursales .sp-card:hover{border-color:#cbd5e1;box-shadow:0 6px 20px rgba(0,68,137,.08);transform:translateY(-1px)}
+#sp-sucursales .sp-card.is-active{border-color:var(--sp-primary);box-shadow:0 8px 24px rgba(0,68,137,.15);background:linear-gradient(180deg,#f3f8ff 0%,#fff 100%)}
+#sp-sucursales .sp-card.is-active::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;background:var(--sp-primary);border-radius:0 4px 4px 0}
+#sp-sucursales .sp-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+#sp-sucursales .sp-badge{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:99px;line-height:1}
+#sp-sucursales .sp-badge--central{background:var(--sp-primary);color:#fff}
+#sp-sucursales .sp-badge--sur{background:#eef4ff;color:var(--sp-primary);border:1px solid #dbe6ff}
+#sp-sucursales .sp-badge--norte{background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}
+#sp-sucursales .sp-live{font-size:11px;color:#059669;font-weight:700;display:flex;align-items:center;gap:5px}
+#sp-sucursales .sp-live i{width:7px;height:7px;background:#10b981;border-radius:50%;display:inline-block;box-shadow:0 0 0 4px rgba(16,185,129,.15);animation:sp-pulse 1.6s infinite}
+@keyframes sp-pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.25)}70%{box-shadow:0 0 0 6px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+#sp-sucursales .sp-card h3{margin:0 0 4px;font-size:16px;font-weight:800;color:var(--sp-ink);line-height:1.2}
+#sp-sucursales .sp-card address{font-style:normal;font-size:13px;color:#475569;line-height:1.45;margin:0}
+#sp-sucursales .sp-horario{margin-top:10px;background:#f8fafc;border:1px solid #f1f5f9;border-radius:10px;padding:8px 10px;font-size:12.5px;color:#334155;display:flex;align-items:center;gap:8px;line-height:1.4}
+#sp-sucursales .sp-horario svg{flex:0 0 14px;color:var(--sp-primary)}
+#sp-sucursales .sp-meta{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+#sp-sucursales .sp-meta a{font-size:13px;color:#334155;text-decoration:none;display:flex;align-items:center;gap:8px;word-break:break-all}
+#sp-sucursales .sp-meta a:hover{color:var(--sp-primary)}
+#sp-sucursales .sp-meta svg{flex:0 0 16px;color:#94a3b8}
+#sp-sucursales .sp-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+#sp-sucursales .sp-card-actions .sp-btn--wa{grid-column:1 / -1}
+#sp-sucursales .sp-btn{font-size:12.5px;font-weight:700;padding:9px 10px;border-radius:10px;border:1px solid #e2e8f0;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;transition:.15s;line-height:1}
+#sp-sucursales .sp-btn--primary{background:var(--sp-primary);color:#fff;border-color:var(--sp-primary)}
+#sp-sucursales .sp-btn--primary:hover{background:var(--sp-primary-dark)}
+#sp-sucursales .sp-btn--ghost:hover{background:#f8fafc;border-color:#cbd5e1}
+#sp-sucursales .sp-btn--wa{background:#25D366;color:#fff;border-color:#1fb354;font-weight:800}
+#sp-sucursales .sp-btn--wa:hover{background:#1eb45a}
+#sp-sucursales .sp-map-wrap{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,68,137,.06);position:sticky;top:16px}
+@media(max-width:900px){#sp-sucursales .sp-map-wrap{position:relative;top:auto}}
+#sp-sucursales .sp-map-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid #f1f5f9;background:#fff;flex-wrap:wrap}
+#sp-sucursales .sp-map-title{font-size:13px;font-weight:700;color:var(--sp-ink);display:flex;align-items:center;gap:8px}
+#sp-sucursales .sp-map-title b{font-weight:800}
+#sp-sucursales .sp-chip{font-size:12px;background:#f1f5f9;color:#475569;padding:6px 10px;border-radius:99px;border:1px solid #e2e8f0}
+#sp-sucursales .sp-map{height:500px;width:100%;background:#eef2f7;position:relative;z-index:1}
+@media(max-width:900px){#sp-sucursales .sp-map{height:420px}}
+#sp-sucursales .sp-map-footer{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-top:1px solid #f1f5f9;flex-wrap:wrap}
+#sp-sucursales .sp-map-footer small{color:#64748b;font-size:12px;line-height:1.4}
+#sp-sucursales .sp-map-footer small strong{color:var(--sp-ink)}
+#sp-sucursales .sp-link{font-size:13px;font-weight:700;color:var(--sp-primary);text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+#sp-sucursales .sp-link:hover{text-decoration:underline}
+.sp-marker{width:36px;height:36px;background:var(--sp-primary);border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 6px 14px rgba(0,68,137,.35);display:flex;align-items:center;justify-content:center}
+.sp-marker.is-active{background:#e11d48}
+.leaflet-popup-content-wrapper{border-radius:12px;font-family:inherit}
+.leaflet-popup-content{margin:12px 14px;line-height:1.45}
+#sp-sucursales .sp-toolbar{display:flex;gap:8px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+#sp-sucursales .sp-toolbar button{font-size:13px;font-weight:700;padding:8px 14px;border-radius:99px;border:1px solid #e2e8f0;background:#fff;cursor:pointer;color:#334155}
+#sp-sucursales .sp-toolbar button.is-active{background:var(--sp-ink);color:#fff;border-color:var(--sp-ink)}
+#sp-sucursales .sp-nota{margin-top:10px;text-align:center;font-size:12px;color:#94a3b8}

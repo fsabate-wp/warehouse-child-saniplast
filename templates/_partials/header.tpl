@@ -38,9 +38,9 @@
                 <li><i class="fa fa-cube"></i> Seguimiento de pedidos</li>
             </ul>
             <ul class="top-bar-links top-bar-pages">
-                <li><a href="#" class="saniplast-top-link">Quiénes Somos</a></li>
-                <li><a href="#" class="saniplast-top-link">Sucursales</a></li>
-                <li><a href="#" class="saniplast-top-link">Novedades</a></li>
+                <li><a href="https://www.saniplast.com.ar/content/4-la-empresa" class="saniplast-top-link">Quiénes Somos</a></li>
+                <li><a href="{$link->getPageLink('sucursales')}" class="saniplast-top-link">Sucursales</a></li>
+                <li><a href="https://www.saniplast.com.ar/mas-vendidos" class="saniplast-top-link">Novedades</a></li>
             </ul>
         </div>
     </div>
