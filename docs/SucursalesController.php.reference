@@ -4,8 +4,10 @@
  * Ruta: /sucursales (php_self = sucursales)
  * Template: themes/warehouse_child/templates/cms/sucursales.tpl
  * Opcion A - Controller front custom, contenido 100% fijo, JS/CSS solo en esta pagina
+ * Ubicacion: override/controllers/front/SucursalesController.php
+ * Dispatcher lo detecta via getControllers([_PS_FRONT_CONTROLLER_DIR_, _PS_OVERRIDE_DIR_.'controllers/front/'])
  */
-class SucursalesControllerCore extends FrontController
+class SucursalesController extends FrontController
 {
     public $php_self = 'sucursales';
     public $ssl = false;
@@ -13,12 +15,9 @@ class SucursalesControllerCore extends FrontController
     public function initContent()
     {
         parent::initContent();
-
-        // Datos fijos para SEO / breadcrumb - centralizados aqui si hace falta pasar al tpl
         $this->context->smarty->assign([
             'sucursales_title' => 'Sucursales',
         ]);
-
         $this->setTemplate('cms/sucursales');
     }
 
@@ -45,7 +44,6 @@ class SucursalesControllerCore extends FrontController
     public function setMedia()
     {
         parent::setMedia();
-
         // Leaflet OSM - solo en esta pagina
         $this->registerStylesheet(
             'leaflet-css',
@@ -57,23 +55,16 @@ class SucursalesControllerCore extends FrontController
             'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
             ['server' => 'remote', 'priority' => 10, 'position' => 'head']
         );
-
-        // Assets locales del child - solo aqui
-        // PrestaShop resuelve /themes/... desde la raiz web
+        // Assets locales del child - solo aqui (path absoluto desde docroot)
         $this->registerStylesheet(
             'sucursales-css',
-            'themes/warehouse_child/assets/css/sucursales.css',
-            ['media' => 'all', 'priority' => 20]
+            '/themes/warehouse_child/assets/css/sucursales.css',
+            ['media' => 'all', 'priority' => 20, 'server' => 'local']
         );
         $this->registerJavascript(
             'sucursales-js',
-            'themes/warehouse_child/assets/js/sucursales.js',
-            ['priority' => 20, 'position' => 'bottom', 'attribute' => 'defer']
+            '/themes/warehouse_child/assets/js/sucursales.js',
+            ['priority' => 20, 'position' => 'bottom', 'attribute' => 'defer', 'server' => 'local']
         );
     }
-}
-
-// Alias para que Dispatcher encuentre SucursalesController
-if (!class_exists('SucursalesController', false)) {
-    class SucursalesController extends SucursalesControllerCore {}
 }
