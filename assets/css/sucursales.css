@@ -1,4 +1,10 @@
 /* SUCURSALES - solo en pagina /sucursales (via SucursalesController) */
+/* Solo sucursales: ocultar breadcrumb + titulo heradado de page.tpl (no afecta resto del sitio) */
+body.page-sucursales .breadcrumb,
+body.page-sucursales nav.breadcrumb{display:none !important;}
+body.page-sucursales .page-header,
+body.page-sucursales #main > .page-header,
+body.page-sucursales #content .page-title{display:none !important;}
 :root{--sp-primary:#004489;--sp-primary-dark:#002a56;--sp-ink:#0f2b4d}
 #sp-sucursales *{box-sizing:border-box}
 #sp-sucursales{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1e293b;max-width:1200px;margin:0 auto;padding:24px 16px}

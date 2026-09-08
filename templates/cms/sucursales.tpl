@@ -6,9 +6,9 @@
  *}
 {extends file='page.tpl'}
 
-{block name='page_title'}
-  Sucursales
-{/block}
+{* Ocultar header/titulo de page.tpl solo en esta pagina *}
+{block name='page_header_container'}{/block}
+{block name='page_title'}{/block}
 
 {block name='page_content_container'}
   <section id="content" class="page-content page-sucursales">
