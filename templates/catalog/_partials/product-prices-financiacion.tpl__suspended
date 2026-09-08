@@ -1,0 +1,159 @@
+ {*Financiación en cuotas*}
+
+ {assign var="unaCuota" value=($product.price_amount)} {*Coeficiente 1 cuota Mastercard y Visa*}
+ {assign var="tresCuotas" value=($product.price_amount*1.12)/3} {*Coeficiente 3 cuotas*}
+ {assign var="cuatroCuotas" value=($product.price_amount)/4} {*Coeficiente 4 cuotas Naranja*}
+ {assign var="seisCuotas" value=($product.price_amount)/6} {*Coeficiente 6 cuotas Naranja*}
+ {assign var="nueveCuotas" value=($product.price_amount)/9} {*Coeficiente 9 cuotas Naranja*}
+ {assign var="doceCuotas" value=($product.price_amount*1.3088)/12} {*Coeficiente 12 cuotas Naranja - 30.88%*}
+ {assign var="planz" value=($product.price_amount*1)/3} {*Coeficiente Z*}
+
+ <div class="financiacion-contenedor">
+     <div class="titulo-financiacion">
+         <h3> Financiación</h3>
+     </div>
+
+     <div id="financiacion">
+         <ul class="nav nav-tabs" id="financiacionTabs" role="tablist">
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link active" id="tresCuotas" data-bs-toggle="tab" data-bs-target="#unaCuota-pane"
+                     type="button" role="tab" aria-controls="unaCuota-pane" aria-selected="true"><span
+                         class="cant-cuota">1
+                     </span><br> <span class="cuota-leyenda">cuota </span></button>
+             </li>
+
+             {*<li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tresCuotas" data-bs-toggle="tab"
+                            data-bs-target="#tresCuotas-pane" type="button" role="tab" aria-controls="tresCuotas-pane"
+                            aria-selected="true"><span class="cant-cuota">3
+                            </span><br> <span class="cuota-leyenda">cuotas </span></button>
+                    </li>*}
+
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="cuatroCuotas" data-bs-toggle="tab" data-bs-target="#cuatroCuotas-pane"
+                     type="button" role="tab" aria-controls="cuatroCuotas-pane" aria-selected="false"><span
+                         class="cant-cuota">4 </span><br> <span class="cuota-leyenda">cuotas
+                         <br>Naranja</span></button>
+             </li>
+
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="seisCuotas" data-bs-toggle="tab" data-bs-target="#seisCuotas-pane"
+                     type="button" role="tab" aria-controls="seisCuotas-pane" aria-selected="false"><span
+                         class="cant-cuota">6 </span><br> <span class="cuota-leyenda">cuotas
+                         <br>Naranja</span></button>
+             </li>
+
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="nueveCuotas" data-bs-toggle="tab" data-bs-target="#nueveCuotas-pane"
+                     type="button" role="tab" aria-controls="nueveCuotas-pane" aria-selected="false"><span
+                         class="cant-cuota">9 </span><br> <span class="cuota-leyenda">cuotas
+                         <br>Naranja</span></button>
+             </li>
+
+             <li class="nav-item" role="presentation">
+                 <button class="nav-link" id="doceCuotas" data-bs-toggle="tab" data-bs-target="#doceCuotas-pane"
+                     type="button" role="tab" aria-controls="doceCuotas-pane" aria-selected="false"><span
+                         class="cant-cuota">12 </span><br> <span class="cuota-leyenda">cuotas
+                         <br>Naranja</span></button>
+             </li>
+
+             {*<li class="nav-item" role="presentation">
+                        <button class="nav-link" id="planz" data-bs-toggle="tab" data-bs-target="#planz-pane" type="button"
+                            role="tab" aria-controls="planz-pane" aria-selected="false"><span class="cant-cuota">Z
+                            </span><br>
+                            <span class="cuota-leyenda">Naranja</span></button>
+                    </li>*}
+         </ul>
+         <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade show active" id="unaCuota-pane" role="tabpanel" aria-labelledby="unaCuota"
+                 tabindex="0">
+                 <div class="precio-cuota cuota3">
+                     <div class="texto-precio-cuota"><span><strong>1</strong> cuotas de </span> <strong
+                             class="price-cuotas" content="{$unaCuota*1}">
+                             ${$unaCuota|number_format:0:",":"."}</strong><span> con tarjetas bancarizadas</span>
+                     </div>
+                     <div class="imgs-tarjetas">
+                         <img height="35px" src="/img/mastercard.png">
+                         <img height="35px" src="/img/visa.png">
+                     </div>
+                 </div>
+             </div>
+
+             {*<div class="tab-pane fade show active" id="tresCuotas-pane" role="tabpanel" aria-labelledby="tresCuotas"
+                        tabindex="0">
+                        <div class="precio-cuota cuota3">
+                            <div class="texto-precio-cuota"><span><strong>3</strong> cuotas de </span> <strong
+                                    class="price-cuotas" content="{$tresCuotas*3}">
+                                    ${$tresCuotas|number_format:0:",":"."}</strong><span> con tarjetas bancarizadas</span>
+                            </div>
+                            <div class="imgs-tarjetas">
+                                <img height="35px" src="/img/cuotasimple.png">
+                                <img height="35px" src="/img/mastercard.png">
+                                <img height="35px" src="/img/visa.png">
+                            </div>
+                        </div>
+                    </div>*}
+
+             <div class="tab-pane fade" id="cuatroCuotas-pane" role="tabpanel" aria-labelledby="cuatroCuotas"
+                 tabindex="0">
+                 <div class="precio-cuota cuota6">
+                     <div class="texto-precio-cuota"><span><strong>4</strong> cuotas sin interés de </span><strong
+                             class="price-cuotas" content="{$cuatroCuotas*4}">
+                             ${$cuatroCuotas|number_format:0:",":"."}</strong></div>
+                     <div class="imgs-tarjetas">
+                         <img height="35px" src="/img/naranjax.png">
+                     </div>
+                 </div>
+             </div>
+
+             <div class="tab-pane fade" id="seisCuotas-pane" role="tabpanel" aria-labelledby="seisCuotas" tabindex="0">
+                 <div class="precio-cuota cuota6">
+                     <div class="texto-precio-cuota"><span><strong>6</strong> cuotas sin interés de </span> <strong
+                             class="price-cuotas" content="{$seisCuotas*6}">
+                             ${$seisCuotas|number_format:0:",":"."}</strong></div>
+                     <div class="imgs-tarjetas">
+                         <img height="35px" src="/img/naranjax.png">
+                     </div>
+                 </div>
+             </div>
+
+             <div class="tab-pane fade" id="nueveCuotas-pane" role="tabpanel" aria-labelledby="nueveCuotas"
+                 tabindex="0">
+                 <div class="precio-cuota cuota9">
+                     <div class="texto-precio-cuota"><span><strong>9</strong> cuotas sin interés de </span> <strong
+                             class="price-cuotas" content="{$nueveCuotas*9}">
+                             ${$nueveCuotas|number_format:0:",":"."}</strong></div>
+                     <div class="imgs-tarjetas">
+                         <img height="35px" src="/img/naranjax.png">
+                     </div>
+
+                 </div>
+             </div>
+
+             <div class="tab-pane fade" id="doceCuotas-pane" role="tabpanel" aria-labelledby="doceCuotas" tabindex="0">
+                 <div class="precio-cuota cuota12">
+                     <div class="texto-precio-cuota"><span><strong>12</strong> cuotas de </span> <strong
+                             class="price-cuotas" content="{$doceCuotas*12}">
+                             ${$doceCuotas|number_format:0:",":"."}</strong><span> con tarjeta NaranjaX</span>
+                     </div>
+                     <div class="imgs-tarjetas">
+                         <img height="35px" src="/img/naranjax.png">
+                     </div>
+                 </div>
+             </div>
+
+             {*<div class="tab-pane fade" id="planz-pane" role="tabpanel" aria-labelledby="planz" tabindex="0">
+                        <div class="precio-cuota cuota12">
+                            <div class="texto-precio-cuota"><span><strong>3</strong> cuotas sin interés de </span><strong
+                                    class="price-cuotas" content="{$cuatroCuotas}">
+                                    ${$planz|number_format:0:",":"."}</strong></div>
+                            <div class="imgs-tarjetas">
+                                <img height="35px" src="/img/naranjax.png">
+
+                            </div>
+                        </div>
+                    </div>*}
+         </div>
+     </div>
+ </div>
+{*Fin financiación en cuotas:*}

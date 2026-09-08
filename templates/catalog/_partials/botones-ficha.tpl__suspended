@@ -1,0 +1,45 @@
+<!-- Botones medios -->
+<div class="botones-medios">
+
+    <span id="updateDetailsPago">Formas de Pago
+        <img src="/img/card.png" aria-hidden="true">
+    </span>
+    <span id="updateDetailsEnvio">Formas de Envío
+        <img src="/img/truck.png" aria-hidden="true">
+    </span>
+
+</div>
+
+<!-- Pop up - Button Pago -->
+<dialog id="biografiaPago">
+    <form method="dialog">
+        <menu>
+            <button id="cancelPago" type="reset">Cerrar</button>
+        </menu>
+        <section>
+            <div class="mto-modal">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/img/pago-mobile.png">
+                    <img id="mediosdeenviodesktop" src="/img/pago-desktop.png" alt="Métodos de pago">
+                </picture>
+            </div>
+        </section>
+    </form>
+</dialog>
+
+<!-- Pop up - Button Envio -->
+<dialog id="biografiaEnvio">
+    <form method="dialog">
+        <menu>
+            <button id="cancelEnvio" type="reset">Cerrar</button>
+        </menu>
+        <section>
+            <div class="mto-modal">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/img/envio-mobile.png">
+                    <img id="mediosdepagodesktop" src="/img/envio-desktop.png" alt="Métodos de envío">
+                </picture>
+            </div>
+        </section>
+    </form>
+</dialog>

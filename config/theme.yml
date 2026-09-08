@@ -1,0 +1,40 @@
+parent: warehouse
+name: warehouse_child
+display_name: Warehouse Child - SaniPlast Custom
+version: 1.1.0
+author:
+  name: "NM"
+  email: ""
+  url: ""
+
+meta:
+  compatibility:
+      from: 1.7.4.0
+      to: ~
+
+  available_layouts:
+    layout-full-width:
+      name: Full Width
+      description: No side columns, ideal for distraction-free pages such as product pages.
+    layout-both-columns:
+      name: Three Columns
+      description: One large central column and 2 side columns.
+    layout-left-column:
+      name: Two Columns, small left column
+      description: Two columns with a small left column
+    layout-right-column:
+      name: Two Columns, small right column
+      description: Two columns with a small right column
+
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: font-awesome
+        path: assets/css/font-awesome/css/font-awesome.css
+        media: all
+        priority: 90
+      - id: warehouse-child-custom
+        path: assets/css/custom.css
+        media: all
+        priority: 210
