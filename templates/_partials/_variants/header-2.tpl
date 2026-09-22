@@ -25,7 +25,7 @@
 
 
 <div class="saniplast-main-header">
-    <div class="container">
+    <div id="desktop-header-container" class="container">
         <div class="row align-items-center saniplast-header-row">
             <div class="col-md-3 col-header-logo">
                 <div id="desktop_logo" class="saniplast-logo-wrap">
@@ -59,7 +59,7 @@
                             {hook h="litespeedEsiEnd"}
                         </div>
                     {/if}
-                    <div class="saniplast-whatsapp">
+                    <!-- <div class="saniplast-whatsapp">
                         <a href="https://wa.me/543511234567" target="_blank" rel="noopener">
                             <i class="fa fa-whatsapp"></i>
                             <span class="whatsapp-info">
@@ -67,7 +67,7 @@
                                 <span class="whatsapp-number">351 123 5678</span>
                             </span>
                         </a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

@@ -110,8 +110,7 @@
             <a id="sp-map-directions" class="sp-link" href="https://www.google.com/maps/dir/?api=1&destination=A.+Magariños+Cervantes+911+Cordoba+Argentina" target="_blank" rel="noopener">Abrir en Google Maps ↗</a>
           </div>
         </div>
-      </div>
-      <p class="sp-nota">Horarios a confirmar — edición directa en el HTML. Sin API key: mapa 100% OpenStreetMap.</p>
+      </div>      
     </section>
 
   </section>
